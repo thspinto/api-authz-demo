@@ -24,7 +24,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
   @Bean
   public AccessDecisionManager accessDecisionManager() {
     List<AccessDecisionVoter<? extends Object>> decisionVoters = Arrays
-        .asList(new OPAVoter("http://opa:8181/v1/data/demo/app"));
+        .asList(new OPAVoter("http://opa:8181/v1/data/demo/app?explain=full&pretty=true"));
     return new UnanimousBased(decisionVoters);
   }
 

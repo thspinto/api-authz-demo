@@ -9,8 +9,8 @@ services:
       - .:/home/gradle
   opa:
     image: openpolicyagent/opa:0.31.0
-    command: run --server --set=default_decision=demo/app/allow /etc/opa/policy
+    command: run --log-level debug --log-format text --server --set=default_decision=demo/app/allow /etc/opa/policy openapi:/etc/opa/openapi.json
     ports:
       - 8181:8181
     volumes:
-      - ./policy:/etc/opa/policy
+      - .:/etc/opa

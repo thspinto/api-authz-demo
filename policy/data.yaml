@@ -1,4 +1,6 @@
 ---
 groups:
-  Example:
-    demo.books:get
+  admin:
+    - demo.manuscripts:list
+  user:
+    - demo.books:list

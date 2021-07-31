@@ -38,7 +38,7 @@ public class OPAVoter implements AccessDecisionVoter<Object> {
     FilterInvocation filter = (FilterInvocation) obj;
     String header = filter.getRequest().getHeader("Authorization");
     String token = "";
-    if (header == null || !header.startsWith("Bearer ")) {
+    if (header != null && header.startsWith("Bearer ")) {
       token = header.substring(7);
     }
 

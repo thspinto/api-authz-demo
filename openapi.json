@@ -8,8 +8,45 @@
   ],
   "openapi": "3.0.1",
   "paths": {
-    "/api/book/": {
+    "/api/manuscripts": {
       "get": {
+        "security": [
+          {
+            "oauth2": [
+              "demo.manuscripts:list"
+            ]
+          }
+        ],
+        "operationId": "getManuscripts",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "pii"
+        ]
+      }
+    },
+    "/api/books": {
+      "get": {
+        "security": [
+          {
+            "oauth2": [
+              "demo.books:list"
+            ]
+          }
+        ],
         "operationId": "getBooks",
         "responses": {
           "200": {
@@ -27,7 +64,7 @@
           }
         },
         "tags": [
-          "book service"
+          "pii"
         ]
       }
     }
@@ -38,8 +75,8 @@
   },
   "tags": [
     {
-      "name": "book service",
-      "description": "the book API with description tag annotation"
+      "name": "pii",
+      "description": "false"
     }
   ]
 }
