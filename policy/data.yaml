@@ -1,0 +1,4 @@
+---
+groups:
+  Example:
+    demo.books:get

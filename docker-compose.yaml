@@ -1,0 +1,16 @@
+version: "3.9"  # optional since v1.27.0
+services:
+  web:
+    image: gradle:7.1.1-jdk16
+    command: gradle bootRun
+    ports:
+      - 8080:8080
+    volumes:
+      - .:/home/gradle
+  opa:
+    image: openpolicyagent/opa:0.31.0
+    command: run --server --set=default_decision=demo/app/allow /etc/opa/policy
+    ports:
+      - 8181:8181
+    volumes:
+      - ./policy:/etc/opa/policy
