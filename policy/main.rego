@@ -11,6 +11,7 @@ allow {
 }
 
 allow {
+	trace(sprintf("Request roles %v", requestRoles))
 	requestRoles[_] == "public"
 }
 

@@ -1,0 +1,47 @@
+---
+components: {}
+servers:
+- description: Generated server url
+  url: http://localhost:8080
+openapi: 3.0.1
+paths:
+  "/api/manuscripts":
+    get:
+      security:
+      - oauth2:
+        - demo.manuscripts:list
+      operationId: getManuscripts
+      responses:
+        '200':
+          description: OK
+          content:
+            "*/*":
+              schema:
+                type: array
+                items:
+                  type: string
+      tags:
+      - pii
+  "/api/books":
+    get:
+      security:
+      - oauth2:
+        - demo.books:list
+      operationId: getBooks
+      responses:
+        '200':
+          description: OK
+          content:
+            "*/*":
+              schema:
+                type: array
+                items:
+                  type: string
+      tags:
+      - pii
+info:
+  title: OpenAPI definition
+  version: v0
+tags:
+- name: pii
+  description: 'false'
